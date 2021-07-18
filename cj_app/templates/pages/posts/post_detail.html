@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page-title %}
+{{ post.category.name }}:{{ post.name }}
+{% endblock %}
+
+{% block main-content %}
+<h2>Post: {{ post.name }} </h2>
+<h2>Category: {{ post.category.name }}</h2>
+<h4>Content:{{ post.content }}</h4>
+
+<hr>
+<a href="{% url 'cj:post_edit' category_id=post.category.id post_id=post.id %}"><button>Edit Post</button></a>
+<a href="{% url 'cj:post_delete' category_id=post.category.id post_id=post.id %}"><button>Delete Post</button></a>
+<hr>
+<a href="{% url 'cj:category_detail' category_id=post.category.id %}"><button>Back to parent Category</button></a>
+{% endblock %}

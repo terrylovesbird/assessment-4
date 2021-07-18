@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block page-title %}
+Categories & Posts
+{% endblock %}
+
+{% block main-content %}
+<h1>Welcome to CJ Home Page</h1>
+<a href="{% url 'cj:category_list' %}">View Categories</a>
+{% endblock %}

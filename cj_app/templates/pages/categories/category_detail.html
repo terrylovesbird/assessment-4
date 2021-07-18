@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page-title %}
+{{ category.name }}
+{% endblock %}
+
+{% block main-content %}
+<h2>Category: {{ category.name }}</h2>
+<h4>Description: {{ category.description }}</h4>
+
+<hr>
+<a href="{% url 'cj:category_edit' category.id %}"><button>Edit Category</button></a>
+<a href="{% url 'cj:category_delete' category.id %}"><button>Delete Category</button></a>
+<hr>
+<a href="{% url 'cj:post_list' category.id %}"><button>View Posts</button></a>
+<hr>
+
+{% endblock %}

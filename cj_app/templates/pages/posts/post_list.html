@@ -1,0 +1,24 @@
+  
+{% extends "base.html" %}
+
+{% block page-title %}
+All Posts for {{ category.name }}
+{% endblock %}
+
+{% block main-content %}
+<h2>Category: {{ category.name }}</h2>
+<h3>Posts:</h3>
+{% if category.cj_posts.all|length == 0 %}
+    <p>[none]</p>
+{% else %}
+<ul>
+    {% for p in category.cj_posts.all %}
+    <li><a href="{% url 'cj:post_detail' category_id=p.category.id post_id=p.id%}">{{ p.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+<hr>
+<a href="{% url 'cj:post_new' category.id %}"><button>Add Post</button></a>
+<hr>
+
+{% endblock %}
